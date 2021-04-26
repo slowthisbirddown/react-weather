@@ -1,6 +1,4 @@
 import * as React from 'react';
-import Link from '@material-ui/core/Link';
-import CopyrightIcon from '@material-ui/icons/Copyright';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Accordion from '@material-ui/core/Accordion';
@@ -17,7 +15,7 @@ function toCelsius(fahrenheit) {
     return (celsius * 9 / 5) + 32;
   }
 
-  function tryConvert(temperature, convert) {
+function tryConvert(temperature, convert) {
     const input = parseFloat(temperature);
     if (Number.isNaN(input)) {
       return '';
