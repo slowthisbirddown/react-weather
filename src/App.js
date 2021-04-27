@@ -6,6 +6,8 @@ import WeatherInput from './Components/WeatherInput';
 import Copyright from './Components/Copyright';
 import Forecast from './Components/Forecast';
 
+//TODO  Hook enter button
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -41,11 +43,14 @@ class App extends React.Component {
 
   handleChange(city) {
     this.setState({
-      "city": city
+      "city": city,
+      "data": {}
     })
   }
 
   render() {
+    const data = this.state.data
+
     return(
       <Container maxWidth="sm">
         <Box sx={{ my: 4 }}>

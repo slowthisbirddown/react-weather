@@ -7,23 +7,22 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 
-function toCelsius(fahrenheit) {
-    return (fahrenheit - 32) * 5 / 9;
+// function toCelsius(fahrenheit) {
+//     return (fahrenheit - 32) * 5 / 9;
+//   }
+
+  function toMph(kph) {
+    var wind = parseInt(kph)
+    // console.log(parseInt(kph))
+    return Math.round(wind * 5 / 8);
   }
 
   function toFahrenheit(celsius) {
-    return (celsius * 9 / 5) + 32;
+    var temp = parseInt(celsius)
+    // console.log(parseInt(celsius))
+    return (temp * 9 / 5) + 32;
   }
 
-function tryConvert(temperature, convert) {
-    const input = parseFloat(temperature);
-    if (Number.isNaN(input)) {
-      return '';
-    }
-    const output = convert(input);
-    const rounded = Math.round(output * 1000) / 1000;
-    return rounded.toString();
-  }
 
 class Forecast extends React.Component {
     constructor(props){
@@ -31,36 +30,39 @@ class Forecast extends React.Component {
     }
 
     render() {
-        return (
-            <Box>
-                {/* Show Current Wind / Temp */}
-                <Typography variant="h1" align="center">{this.props.city}</Typography>
-                <Typography variant="h2" align="center">{this.props.data.description}</Typography>
-                <Typography variant="h2" align="center">Wind: {this.props.data.wind}</Typography>
-                <Typography variant="h4" gutterBottom align="center">Temperature: {this.props.data.temperature}</Typography>
+        if (Object.keys(this.props.data).length > 0) {
+          return (
+              <Box>
+                  {/* Show Current Wind / Temp */}
+                  <Typography variant="h1" align="center">{this.props.city}</Typography>
+                  <Typography variant="h2" align="center">{this.props.data.description}</Typography>
+                  <Typography variant="h2" align="center">Wind: {toMph(this.props.data.wind)} Mph</Typography>
+                  <Typography variant="h4" gutterBottom align="center">Temperature: {toFahrenheit(this.props.data.temperature)} F</Typography>
 
 
-                {/* Debug */}
+                  {/* Debug */}
 
-                <Accordion>
-                    <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    >
-                        <Typography>Data Debug</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                    <Typography component={'span'}>
-                        <pre>{JSON.stringify(this.props.data, null, 2) }</pre>
-                    </Typography>
-                    </AccordionDetails>
-                </Accordion>
-            </Box>
+                  <Accordion>
+                      <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      >
+                          <Typography>Data Debug</Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                      <Typography component={'span'}>
+                          <pre>{JSON.stringify(this.props.data, null, 2) }</pre>
+                      </Typography>
+                      </AccordionDetails>
+                  </Accordion>
+              </Box>
             // Show Description with Icon
             // Show 3 day forecast
             // Option to convert to F*
-
-
           );
+        }
+        else {
+          return ("")
+        }
     }
 }
 
