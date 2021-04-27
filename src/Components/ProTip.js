@@ -13,11 +13,10 @@ function LightBulbIcon(props) {
 
 export default function ProTip() {
   return (
-    <Typography sx={{ mt: 6, mb: 3 }} color="text.secondary">
+    <Typography sx={{ mt: 6, mb: 3 }} align="center" color="text.secondary">
       <LightBulbIcon sx={{ mr: 1, verticalAlign: 'middle' }} />
-      Pro tip: See more{' '}
-      <Link href="https://material-ui.com/getting-started/templates/">templates</Link> on the
-      Material-UI documentation.
+      Pro tip: See the source code on{' '}
+      <Link href="https://github.com/slowthisbirddown/react-weather">github</Link>
     </Typography>
   );
 }

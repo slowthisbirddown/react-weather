@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import WeatherInput from './Components/WeatherInput';
 import Copyright from './Components/Copyright';
 import Forecast from './Components/Forecast';
+import ProTip from './Components/ProTip';
 
 //TODO  Hook enter button
 
@@ -65,7 +66,7 @@ class App extends React.Component {
             city = {this.state.city}
             data={this.state.data}
           />
-          {/* <ProTip /> */}
+          <ProTip />
           <Copyright />
         </Box>
       </Container>
