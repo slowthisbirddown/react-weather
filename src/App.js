@@ -6,6 +6,7 @@ import WeatherInput from './Components/WeatherInput';
 import Copyright from './Components/Copyright';
 import Forecast from './Components/Forecast';
 import ProTip from './Components/ProTip';
+import Convert from './Components/Convert'
 
 //TODO  Hook enter button
 
@@ -36,7 +37,7 @@ class App extends React.Component {
           console.log(this.state.data);
         },
         (error) => {
-          alert("Error fetching data from the API");
+          alert("Field cannot be empty");
         }
       )
   }

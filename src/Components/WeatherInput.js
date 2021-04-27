@@ -2,8 +2,8 @@ import * as React from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Box from '@material-ui/core/Box';
-import App from '../App';
 
+// TODO Enter key submits find forecast button
 class WeatherInput extends React.Component {
     constructor(props){
         super(props);
