@@ -2,6 +2,10 @@ import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
+
+// I copy pasted the component you already had into daily, made like two changes,
+// then added a function to render in app that mapped through the forecast array field in the data object.
+
   function toMph(kph) {
     console.log('this ran');
     var wind = parseInt(kph)
