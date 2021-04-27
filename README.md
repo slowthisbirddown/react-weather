@@ -9,7 +9,7 @@ TODO
 
 -Add icons
 
--Show all three days of pulled weather.
+XShow all three days of pulled weather. (Merged Williams code that helped achieve this)
 
 -Add button for C or F conversion
 

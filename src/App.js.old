@@ -6,7 +6,7 @@ import WeatherInput from './Components/WeatherInput';
 import Copyright from './Components/Copyright';
 import Forecast from './Components/Forecast';
 import ProTip from './Components/ProTip';
-import Daily from './Components/Daily';
+import Convert from './Components/Convert'
 
 //TODO  Hook enter button
 
@@ -17,8 +17,7 @@ class App extends React.Component {
     // State
     this.state = {
       "city": "",
-      "data": {},
-      'forecast': []
+      "data": {}
     }
 
     // Binds
@@ -32,14 +31,13 @@ class App extends React.Component {
       .then(
         (result) => {
           this.setState({
-            "data": result,
-            'forecast': result.forecast,
+            "data": result
           });
 
           console.log(this.state.data);
         },
         (error) => {
-          alert("Error fetching data from the API");
+          alert("Field cannot be empty");
         }
       )
   }
@@ -50,15 +48,6 @@ class App extends React.Component {
       "city": city,
       "data": {}
     })
-  }
-
-  renderDaily = () => {
-    console.log('forecast', this.state.forecast);
-    if(this.state.forecast.length > 0) {
-      return this.state.forecast.map((day) => {
-        return <Daily data={day} />
-      })
-    }
   }
 
   render() {
@@ -80,8 +69,6 @@ class App extends React.Component {
           />
           <ProTip />
           <Copyright />
-
-          {this.renderDaily()}
         </Box>
       </Container>
     );
